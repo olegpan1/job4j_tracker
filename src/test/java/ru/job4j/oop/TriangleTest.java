@@ -48,9 +48,9 @@ public class TriangleTest {
 
     @Test
     public void nonTriangle2() {
-        Point a = new Point(-1, -1);
-        Point b = new Point(2, 2);
-        Point c = new Point(5, 5);
+        Point a = new Point(3, 0);
+        Point b = new Point(5, 2);
+        Point c = new Point(6, 3);
         Triangle triangle = new Triangle(a, b, c);
         double rsl = triangle.area();
         assertThat(rsl, closeTo(-1, 0.001));
