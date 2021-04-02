@@ -37,7 +37,7 @@ public class TriangleTest {
     }
 
     @Test
-    public void nonTriangle() {
+    public void nonTriangle1() {
         Point a = new Point(1, 1);
         Point b = new Point(3, 3);
         Point c = new Point(4, 4);
@@ -46,4 +46,13 @@ public class TriangleTest {
         assertThat(rsl, closeTo(-1, 0.001));
     }
 
+    @Test
+    public void nonTriangle2() {
+        Point a = new Point(-1, -1);
+        Point b = new Point(2, 2);
+        Point c = new Point(5, 5);
+        Triangle triangle = new Triangle(a, b, c);
+        double rsl = triangle.area();
+        assertThat(rsl, closeTo(-1, 0.001));
+    }
 }
