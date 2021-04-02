@@ -15,7 +15,7 @@ public class Error {
     }
 
     public void printInfo() {
-        System.out.println("\nError active: " + active);
+        System.out.println(System.lineSeparator() + "Error active: " + active);
         System.out.println("Error status: " + status);
         System.out.println("Error message: " + message);
     }
