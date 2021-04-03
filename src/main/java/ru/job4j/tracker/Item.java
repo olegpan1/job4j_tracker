@@ -4,6 +4,19 @@ public class Item {
     private int id;
     private String name;
 
+    public Item() {
+
+    }
+
+    public Item(String name) {
+        this.name = name;
+    }
+
+    public Item(String name, int id) {
+        this.name = name;
+        this.id = id;
+    }
+
     public int getId() {
         return id;
     }
@@ -18,5 +31,19 @@ public class Item {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void printInfo() {
+        System.out.println("Name:  " + name);
+        System.out.println("ID: " + id);
+    }
+
+    public static void main(String[] args) {
+        Item first = new Item();
+        Item second = new Item("Second");
+        Item third = new Item("Third", 3);
+        first.printInfo();
+        second.printInfo();
+        third.printInfo();
     }
 }
