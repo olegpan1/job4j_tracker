@@ -1,4 +1,4 @@
-package  ru.job4j.oop;
+package ru.job4j.oop;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -49,4 +49,48 @@ public class PointTest {
         Assert.assertEquals(expected, dist, 0.001);
     }
 
+    @Test
+    public void test3DDistance1() {
+        Point a = new Point(-2, -4, 7);
+        Point b = new Point(5, 7, 1);
+        double dist = a.distance3D(b);
+        double expected = 14.353;
+        Assert.assertEquals(expected, dist, 0.001);
+    }
+
+    @Test
+    public void test3DDistance2() {
+        Point a = new Point(3, 2, 1);
+        Point b = new Point(7, 2, 0);
+        double dist = a.distance3D(b);
+        double expected = 4.123;
+        Assert.assertEquals(expected, dist, 0.001);
+    }
+
+    @Test
+    public void test3DDistance3() {
+        Point a = new Point(6, 1, -4);
+        Point b = new Point(6, 4, 0);
+        double dist = a.distance3D(b);
+        double expected = 5;
+        Assert.assertEquals(expected, dist, 0.001);
+    }
+
+    @Test
+    public void test3DDistance4() {
+        Point a = new Point(-3, -3, -3);
+        Point b = new Point(5, 5, 5);
+        double dist = a.distance3D(b);
+        double expected = 13.856;
+        Assert.assertEquals(expected, dist, 0.001);
+    }
+
+    @Test
+    public void test3DDistance5() {
+        Point a = new Point(1, -3, 1);
+        Point b = new Point(3, 4, 3);
+        double dist = a.distance3D(b);
+        double expected = 7.549;
+        Assert.assertEquals(expected, dist, 0.001);
+    }
 }
