@@ -27,4 +27,19 @@ public class TrackerTest {
         tracker.replace(id, bugWithDesc);
         assertThat(tracker.findById(id).getName(), is("Bug with description"));
     }
+
+    @Test
+    public void whenReplace2() {
+        Tracker tracker = new Tracker();
+        Item place1 = new Item("Place1");
+        Item place2 = new Item("Place2");
+        Item place3 = new Item("Place3");
+        tracker.add(place1);
+        tracker.add(place2);
+        tracker.add(place3);
+        int id = place2.getId();
+        Item placeReplace = new Item("PlaceReplace");
+        tracker.replace(id, placeReplace);
+        assertThat(tracker.findById(id).getName(), is("PlaceReplace"));
+    }
 }
