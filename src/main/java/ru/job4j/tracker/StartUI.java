@@ -13,7 +13,12 @@ public class StartUI extends Item {
         System.out.println("Текущие дата и время после форматирования: " + currentDateTimeFormat);
 
         Tracker tracker = new Tracker();
-        tracker.add(time);
-        tracker.findById(1).printInfo();
+        Item place1 = new Item("Place1");
+        Item place2 = new Item("Place2");
+        Item place3 = new Item("Place3");
+        tracker.add(place1);
+        tracker.add(place2);
+        tracker.add(place3);
+        System.out.println(place1);
     }
 }
