@@ -23,9 +23,8 @@ public class StartUI {
             } else if (select == 1) {
                 Item[] all = tracker.findAll();
                 System.out.println("Список всех заявок: ");
-                for (Item it : all
-                ) {
-                    System.out.println(it.toString());
+                for (Item it : all) {
+                    System.out.println(it);
                 }
             } else if (select == 2) {
                 System.out.println("Введите id заявки, которую будем заменять");
@@ -61,9 +60,8 @@ public class StartUI {
                 Item[] findByName = tracker.findByName(name);
                 if (findByName.length > 0) {
                     System.out.println("Список заявок с именем: " + name);
-                    for (Item it : findByName
-                    ) {
-                        System.out.println(it.toString());
+                    for (Item it : findByName) {
+                        System.out.println(it);
                     }
                 } else {
                     System.out.println("Заявки с именем " + name + " не найдены");
