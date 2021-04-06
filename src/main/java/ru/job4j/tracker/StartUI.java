@@ -3,7 +3,7 @@ package ru.job4j.tracker;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class StartUI extends Item {
+public class StartUI {
     public static void main(String[] args) {
         Item place1 = new Item("Place1");
         Tracker tracker = new Tracker();

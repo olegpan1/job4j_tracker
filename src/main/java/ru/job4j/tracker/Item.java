@@ -7,12 +7,6 @@ public class Item {
     private String name;
     private LocalDateTime created = LocalDateTime.now();
 
-    @Override
-    public String toString() {
-        return "Item{" + "id=" + id + ", name='" + name
-                + '\'' + ", created=" + created + '}';
-    }
-
     public Item() {
     }
 
@@ -50,12 +44,9 @@ public class Item {
         System.out.println("ID: " + id);
     }
 
-    public static void main(String[] args) {
-        Item first = new Item();
-        Item second = new Item("Second");
-        Item third = new Item("Third", 3);
-        first.printInfo();
-        second.printInfo();
-        third.printInfo();
+    @Override
+    public String toString() {
+        return "Item{" + "id=" + id + ", name='" + name
+                + '\'' + ", created=" + created + '}';
     }
 }
