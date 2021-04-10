@@ -86,7 +86,17 @@ public class StartUITest {
                 new ExitAction()
         };
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString().contains("Найдена заявка"), is(true));
+        assertThat(out.toString(), is(
+                "Menu." + System.lineSeparator()
+                        + "0. Find item by id" + System.lineSeparator()
+                        + "1. Exit" + System.lineSeparator()
+                        + "=== Find item by id ====" + System.lineSeparator()
+                        + "Найдена заявка: Item{id=" + item.getId() + ", name='"
+                        + item.getName() + "', created=" + item.getTime() + "}"
+                        + System.lineSeparator() + "Menu." + System.lineSeparator()
+                        + "0. Find item by id" + System.lineSeparator()
+                        + "1. Exit" + System.lineSeparator()
+        ));
     }
 
     @Test
@@ -102,7 +112,16 @@ public class StartUITest {
                 new ExitAction()
         };
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString().contains("не найдена"), is(true));
+        assertThat(out.toString(), is(
+                "Menu." + System.lineSeparator()
+                        + "0. Find item by id" + System.lineSeparator()
+                        + "1. Exit" + System.lineSeparator()
+                        + "=== Find item by id ====" + System.lineSeparator()
+                        + "Заявка с id " + (item.getId() + 1) + " не найдена"
+                        + System.lineSeparator() + "Menu." + System.lineSeparator()
+                        + "0. Find item by id" + System.lineSeparator()
+                        + "1. Exit" + System.lineSeparator()
+        ));
     }
 
     @Test
@@ -118,7 +137,18 @@ public class StartUITest {
                 new ExitAction()
         };
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString().contains("Список заявок"), is(true));
+        assertThat(out.toString(), is(
+                "Menu." + System.lineSeparator()
+                        + "0. Find items by name" + System.lineSeparator()
+                        + "1. Exit" + System.lineSeparator()
+                        + "=== Find items by name ====" + System.lineSeparator()
+                        + "Список заявок с именем: " + item.getName() + System.lineSeparator()
+                        + "Item{id=" + item.getId() + ", name='"
+                        + item.getName() + "', created=" + item.getTime() + "}"
+                        + System.lineSeparator() + "Menu." + System.lineSeparator()
+                        + "0. Find items by name" + System.lineSeparator()
+                        + "1. Exit" + System.lineSeparator()
+        ));
     }
 
     @Test
@@ -135,7 +165,15 @@ public class StartUITest {
                 new ExitAction()
         };
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString().contains("не найдены"), is(true));
+        assertThat(out.toString(), is(
+                "Menu." + System.lineSeparator()
+                        + "0. Find items by name" + System.lineSeparator()
+                        + "1. Exit" + System.lineSeparator()
+                        + "=== Find items by name ====" + System.lineSeparator()
+                        + "Заявки с именем " + noName + " не найдены" + System.lineSeparator()
+                        + "Menu." + System.lineSeparator() + "0. Find items by name"
+                        + System.lineSeparator() + "1. Exit" + System.lineSeparator()
+        ));
     }
 
     @Test
@@ -151,7 +189,17 @@ public class StartUITest {
                 new ExitAction()
         };
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString().contains("Show1"), is(true));
+        assertThat(out.toString(), is(
+                "Menu." + System.lineSeparator()
+                        + "0. Show all items" + System.lineSeparator()
+                        + "1. Exit" + System.lineSeparator()
+                        + "=== Show all items ====" + System.lineSeparator()
+                        + "Item{id=" + item.getId() + ", name='"
+                        + item.getName() + "', created=" + item.getTime() + "}"
+                        + System.lineSeparator() + "Menu." + System.lineSeparator()
+                        + "0. Show all items" + System.lineSeparator()
+                        + "1. Exit" + System.lineSeparator()
+        ));
     }
 
     @Test
@@ -166,6 +214,14 @@ public class StartUITest {
                 new ExitAction()
         };
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString().contains("Хранилище еще не содержит заявок"), is(true));
-    }
+        assertThat(out.toString(), is(
+                "Menu." + System.lineSeparator()
+                        + "0. Show all items" + System.lineSeparator()
+                        + "1. Exit" + System.lineSeparator()
+                        + "=== Show all items ====" + System.lineSeparator()
+                        + "Хранилище еще не содержит заявок"
+                        + System.lineSeparator() + "Menu." + System.lineSeparator()
+                        + "0. Show all items" + System.lineSeparator()
+                        + "1. Exit" + System.lineSeparator()
+        ));    }
 }
