@@ -27,9 +27,7 @@ public class StartUITest {
     public void whenReplaceItem() {
         Output output = new ConsoleOutput();
         Tracker tracker = new Tracker();
-        /* Добавим в tracker новую заявку */
         Item item = tracker.add(new Item("Replaced item"));
-        /* Входные данные должны содержать ID добавленной заявки  */
         String replacedName = "New item name";
         Input in = new StubInput(
                 new String[]{"0", String.valueOf(item.getId()), replacedName, "1"}
