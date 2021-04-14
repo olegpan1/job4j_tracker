@@ -20,7 +20,7 @@ public class PhoneDictionaryTest {
     }
 
     @Test
-    public void whenNotFindByName() {
+    public void whenDontFindByName() {
         PhoneDictionary phones = new PhoneDictionary();
         phones.add(
                 new Person("Petr", "Arsentev", "534872", "Bryansk")
