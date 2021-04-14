@@ -5,26 +5,25 @@ import java.util.List;
 
 public class Tracker {
     //    private final List<Item items = new Item[100];
-    private final List<Item> items = new ArrayList<>(100);
+    private final List<Item> items = new ArrayList<>();
     private int ids = 1;
-    private int size = 0;
 
     public Item add(Item item) {
         item.setId(ids++);
-        items.add(size++, item);
+        items.add(item);
         return item;
     }
 
     public List<Item> findAll() {
-        return items;
+        return new ArrayList<>(items);
     }
 
     public List<Item> findByName(String key) {
         List<Item> itemsEqualNames = new ArrayList<>();
         int index = 0;
-        for (int i = 0; i < size; i++) {
-            if (items.get(i).getName().equals(key)) {
-                itemsEqualNames.add(index++, items.get(i));
+        for (Item item : items) {
+            if (item.getName().equals(key)) {
+                itemsEqualNames.add(index++, item);
             }
         }
         return itemsEqualNames;
@@ -32,7 +31,7 @@ public class Tracker {
 
     private int indexOf(int id) {
         int rsl = -1;
-        for (int index = 0; index < size; index++) {
+        for (int index = 0; index < items.size(); index++) {
             if (items.get(index).getId() == id) {
                 rsl = index;
                 break;
@@ -61,7 +60,6 @@ public class Tracker {
         boolean rsl = index != -1;
         if (rsl) {
             items.remove(index);
-            size--;
         }
         return rsl;
     }

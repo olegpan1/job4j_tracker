@@ -158,7 +158,6 @@ public class StartUITest {
     public void whenNotFindByName() {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
-        Item item = tracker.add(new Item("Find name"));
         String noName = "No name";
         Input in = new StubInput(
                 new String[]{"0", noName, "1"}
