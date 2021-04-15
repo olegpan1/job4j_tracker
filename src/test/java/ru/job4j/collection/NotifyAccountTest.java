@@ -2,12 +2,13 @@ package ru.job4j.collection;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 public class NotifyAccountTest {
     @Test
@@ -39,6 +40,13 @@ public class NotifyAccountTest {
                         new Account("142", "Petr Arsentev", "000001")
                 )
         );
+        assertThat(NotifyAccount.sent(accounts), is(expect));
+    }
+
+    @Test
+    public void whenEmpty() {
+        List<Account> accounts = new ArrayList<>();
+        HashSet<Account> expect = new HashSet<>(Arrays.asList());
         assertThat(NotifyAccount.sent(accounts), is(expect));
     }
 }
