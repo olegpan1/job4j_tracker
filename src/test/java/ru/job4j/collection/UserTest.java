@@ -40,7 +40,6 @@ public class UserTest {
         users.add(new User("Petr", 10));
         users.add(new User("Petr", 30));
         users.add(new User("Ivan", 20));
-        System.out.println(users);
         Iterator<User> it = users.iterator();
         assertThat(it.next(), is(new User("Ivan", 20)));
         assertThat(it.next(), is(new User("Ivan", 31)));
