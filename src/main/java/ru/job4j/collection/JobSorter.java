@@ -8,15 +8,15 @@ import java.util.List;
 public class JobSorter {
     public static void main(String[] args) {
         List<Job> jobs = Arrays.asList(
-                new Job("Fix1", 1),
-                new Job("Fix2", 2)
+                new Job("Fix", 1),
+                new Job("Fix", 2)
         );
-        Collections.sort(jobs, new JobDescByNameUp().thenComparing(new JobDescByPriorityUp()));
+        Collections.sort(jobs, new JobAscByName().thenComparing(new JobAscByPriority()));
         System.out.println(jobs);
 
         Comparator<Job> comb = new JobDescByNameLn()
-                .thenComparing(new JobDescByNameDown())
-                .thenComparing(new JobDescByPriorityDown());
+                .thenComparing(new JobDescByName())
+                .thenComparing(new JobDescByPriority());
         Collections.sort(jobs, comb);
         System.out.println(jobs);
     }
