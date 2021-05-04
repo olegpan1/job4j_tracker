@@ -30,19 +30,21 @@ public class LexSortTest {
                 "10. Task.",
                 "1. Task.",
                 "2. Task.",
+                "1.2.4.2. Task.",
                 "2.1. Task.",
-                "1.2.4. Task.",
+                "1.2.4.38 Parrots.",
                 "1.2.2.20",
         };
         String[] out = {
                 "1. Task.",
                 "1.2.2.20",
-                "1.2.4. Task.",
+                "1.2.4.38 Parrots.",
+                "1.2.4.2. Task.",
                 "2. Task.",
                 "2.1. Task.",
-                "10. Task.",
+                "10. Task."
         };
-        Arrays.sort(input, new LexSort());
+        Arrays.sort(input, new LexSortFullCompare());
         assertThat(input, is(out));
     }
 }
