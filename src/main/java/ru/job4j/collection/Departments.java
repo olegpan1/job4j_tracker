@@ -17,14 +17,12 @@ public class Departments {
     }
 
     public static void sortAsc(List<String> orgs) {
-        List<String> sorted = fillGaps(orgs);
-        sorted.sort(Comparator.naturalOrder());
-        System.out.print(sorted);
+        orgs.sort(Comparator.naturalOrder());
+        System.out.print(orgs);
     }
 
     public static void sortDesc(List<String> orgs) {
-        List<String> sorted = fillGaps(orgs);
-        sorted.sort(new DepDescComp());
-        System.out.print(sorted);
+        orgs.sort(new DepDescComp());
+        System.out.print(orgs);
     }
 }
