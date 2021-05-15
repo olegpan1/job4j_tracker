@@ -18,11 +18,15 @@ public class FreezeStr {
         char[] rightCh = right.toCharArray();
         Map<Character, Integer> map = new HashMap<>();
         for (char ch : leftCh) {
-            map.putIfAbsent(ch, 0);
-            map.computeIfPresent(ch, (K, V) -> V = V + 1);
+            // Зачем использовать putIfAbsent и computeIfPresent если в этом случае merge
+            // может их заменить?
+//            map.putIfAbsent(ch, 0);
+//            map.computeIfPresent(ch, (k, v) -> v = v + 1);
+            map.merge(ch, 1, (v, nV) -> nV + 1);
         }
         for (char ch : rightCh) {
-            map.computeIfPresent(ch, (K, V) -> V = ((V - 1) == 0 ? null : V - 1));
+            map.computeIfPresent(ch, (k, v) -> v = v - 1);
+            map.remove(ch, 0);
         }
         return map.keySet().size() == 0;
     }
