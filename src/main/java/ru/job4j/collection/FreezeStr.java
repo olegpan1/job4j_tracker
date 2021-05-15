@@ -17,15 +17,13 @@ public class FreezeStr {
         char[] leftCh = left.toCharArray();
         char[] rightCh = right.toCharArray();
         Map<Character, Integer> map = new HashMap<>();
-        for (int i = 0; i < leftCh.length; i++) {
-            map.merge(leftCh[i], 1, (V, nV) -> V + 1);
-            map.merge(rightCh[i], -1, (V, nV) -> V - 1);
+        for (char ch : leftCh) {
+            map.putIfAbsent(ch, 0);
+            map.computeIfPresent(ch, (K, V) -> V = V + 1);
         }
-        for (Integer val : map.values()) {
-            if (!val.equals(0)) {
-                return false;
-            }
+        for (char ch : rightCh) {
+            map.computeIfPresent(ch, (K, V) -> V = ((V - 1) == 0 ? null : V - 1));
         }
-        return true;
+        return map.keySet().size() == 0;
     }
 }

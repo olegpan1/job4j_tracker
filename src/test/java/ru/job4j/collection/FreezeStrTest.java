@@ -29,6 +29,6 @@ public class FreezeStrTest {
 
     @Test
     public void whenEqual() {
-        assertThat(FreezeStr.eq("Hello world!", "Hello world!"), is(true));
+        assertThat(FreezeStr.eq("Hello world!", "world! Hello"), is(true));
     }
 }
