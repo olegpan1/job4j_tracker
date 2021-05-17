@@ -18,8 +18,6 @@ public class LambdaUsage {
             return Integer.compare(second, first);
         };
         Arrays.sort(numbers, numStr);
-        for (String str : numbers) {
-            System.out.println(str);
-        }
+        Arrays.stream(numbers).forEach(System.out::println);
     }
 }
