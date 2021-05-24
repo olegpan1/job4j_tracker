@@ -8,10 +8,10 @@ public class ListToMap {
 
     public Map<String, Student> listToMap(List<Student> students) {
         return students.stream()
-                .distinct()
                 .collect(Collectors.toMap(
                         Student::getSurname,
-                        x -> x
+                        x -> x,
+                        (a, b) -> a
                 ));
     }
 }

@@ -15,7 +15,7 @@ public class ListToMapTest {
         List<Student> students = List.of(
                 new Student(50, "Ivanov"),
                 new Student(40, "Petrov"),
-                new Student(50, "Ivanov"),
+                new Student(40, "Ivanov"),
                 new Student(70, "Sidorov"),
                 new Student(90, "Smith")
         );
