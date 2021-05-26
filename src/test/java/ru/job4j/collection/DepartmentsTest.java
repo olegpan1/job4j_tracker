@@ -33,7 +33,7 @@ public class DepartmentsTest {
     public void whenMissed() {
         List<String> input = Arrays.asList("k2/sk1/ssk2", "k1/sk1/ssk2", "k1/sk1/ssk1",
                 "k2/sk1/ssk1", "k2/sk2");
-        List<String> expect = Arrays.asList("k2", "k2/sk1", "k2/sk1/ssk2",
+        List<String> expect = List.of("k2", "k2/sk1", "k2/sk1/ssk2",
                 "k1", "k1/sk1", "k1/sk1/ssk2", "k1/sk1/ssk1", "k2/sk1/ssk1", "k2/sk2");
         List<String> result = Departments.fillGaps(input);
         assertThat(result, is(expect));
@@ -42,7 +42,7 @@ public class DepartmentsTest {
     @Test
     public void whenNonChange() {
         List<String> input = Arrays.asList("k1", "k1/sk1");
-        List<String> expect = Arrays.asList("k1", "k1/sk1");
+        List<String> expect = List.of("k1", "k1/sk1");
         List<String> result = Departments.fillGaps(input);
         assertThat(result, is(expect));
     }
@@ -51,7 +51,7 @@ public class DepartmentsTest {
     public void sortAsc() {
         List<String> input = Arrays.asList("k2/sk1/ssk2", "k1/sk1/ssk2", "k1/sk1/ssk1",
                 "k2/sk1/ssk1", "k2/sk2", "k1/sk2", "k1");
-        List<String> expect = Arrays.asList("k1", "k1/sk1/ssk1", "k1/sk1/ssk2", "k1/sk2",
+        List<String> expect = List.of("k1", "k1/sk1/ssk1", "k1/sk1/ssk2", "k1/sk2",
                   "k2/sk1/ssk1", "k2/sk1/ssk2", "k2/sk2");
         Departments.sortAsc(input);
         assertEquals(expect.toString(), output.toString());
@@ -61,7 +61,7 @@ public class DepartmentsTest {
     public void sortDesc() {
         List<String> input = Arrays.asList("k2/sk1/ssk2", "k1/sk1/ssk2", "k1/sk1/ssk1",
                 "k2/sk1/ssk1", "k2/sk2", "k1/sk2", "k2", "k1");
-        List<String> expect = Arrays.asList("k2", "k2/sk1/ssk1", "k2/sk1/ssk2", "k2/sk2",
+        List<String> expect = List.of("k2", "k2/sk1/ssk1", "k2/sk1/ssk2", "k2/sk2",
                 "k1", "k1/sk1/ssk1", "k1/sk1/ssk2", "k1/sk2");
         Departments.sortDesc(input);
         assertEquals(expect.toString(), output.toString());
