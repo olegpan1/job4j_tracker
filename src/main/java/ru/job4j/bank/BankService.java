@@ -32,9 +32,12 @@ public class BankService {
      * @param account  - информация о счете
      */
     public void addAccount(String passport, Account account) {
-        List<Account> findAccount = users.get(findByPassport(passport).get());
-        if (findAccount != null && !findAccount.contains(account)) {
-            findAccount.add(account);
+        Optional<User> user = findByPassport(passport);
+        if (user.isPresent()) {
+            List<Account> findAccount = users.get(user.get());
+            if (findAccount != null && !findAccount.contains(account)) {
+                findAccount.add(account);
+            }
         }
     }
 
@@ -81,14 +84,17 @@ public class BankService {
      */
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
-        boolean rsl = false;
-        Account srcAccount = findByRequisite(srcPassport, srcRequisite).get();
-        Account dstAccount = findByRequisite(destPassport, destRequisite).get();
-        if (srcAccount.getBalance() >= amount) {
-            srcAccount.setBalance(srcAccount.getBalance() - amount);
-            dstAccount.setBalance(dstAccount.getBalance() + amount);
-            rsl = true;
+        Optional<Account> findSrc = findByRequisite(srcPassport, srcRequisite);
+        Optional<Account> findDest = findByRequisite(destPassport, destRequisite);
+        if (findSrc.isPresent() && findDest.isPresent()) {
+            Account srcAccount = findSrc.get();
+            Account dstAccount = findDest.get();
+            if (srcAccount.getBalance() >= amount) {
+                srcAccount.setBalance(srcAccount.getBalance() - amount);
+                dstAccount.setBalance(dstAccount.getBalance() + amount);
+                return true;
+            }
         }
-        return rsl;
+        return false;
     }
 }
