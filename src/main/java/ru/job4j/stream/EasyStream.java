@@ -26,11 +26,9 @@ public class EasyStream {
 
     public EasyStream filter(Predicate<Integer> fun) {
         List<Integer> list = new ArrayList<>();
-        Integer num;
         for (Integer integer : listCurrent) {
-            num = integer;
-            if (fun.test(num)) {
-                list.add(num);
+            if (fun.test(integer)) {
+                list.add(integer);
             }
         }
         return new EasyStream(list);
