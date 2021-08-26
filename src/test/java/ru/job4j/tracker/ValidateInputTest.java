@@ -1,6 +1,10 @@
 package ru.job4j.tracker;
 
+import org.hamcrest.MatcherAssert;
 import org.junit.Test;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -9,45 +13,31 @@ public class ValidateInputTest {
 
     @Test
     public void whenInvalidInput() {
-        Output out = new StubOutput();
-        Input in = new StubInput(
-                new String[]{"one", "1"}
+        ByteArrayOutputStream mem = new ByteArrayOutputStream();
+        PrintStream out = System.out;
+        System.setOut(new PrintStream(mem));
+        String[] data = {"one", "1"};
+        ValidateInput input = new ValidateInput(new StubInput(data));
+        input.askInt("Enter");
+        MatcherAssert.assertThat(
+                mem.toString(),
+                is(String.format("Please enter validate data again.%n"))
         );
-        ValidateInput input = new ValidateInput(out, in);
-        int selected = input.askInt("Enter menu:");
-        assertThat(selected, is(1));
+        System.setOut(out);
     }
 
     @Test
-    public void whenValidInput() {
-        Output out = new StubOutput();
-        Input in = new StubInput(
-                new String[]{"3"}
+    public void whenInvalidMenuKey() {
+        ByteArrayOutputStream mem = new ByteArrayOutputStream();
+        PrintStream out = System.out;
+        System.setOut(new PrintStream(mem));
+        String[] data = {"1", "0"};
+        ValidateInput input = new ValidateInput(new StubInput(data));
+        input.askInt("Enter", 1);
+        MatcherAssert.assertThat(
+                mem.toString(),
+                is(String.format("Please select key from menu.%n"))
         );
-        ValidateInput input = new ValidateInput(out, in);
-        int selected = input.askInt("Enter menu:");
-        assertThat(selected, is(3));
-    }
-
-    @Test
-    public void whenValidInput3() {
-        Output out = new StubOutput();
-        Input in = new StubInput(
-                new String[]{"4", "1", "2"}
-        );
-        ValidateInput input = new ValidateInput(out, in);
-        int selected = input.askInt("Enter menu:");
-        assertThat(selected, is(4));
-    }
-
-    @Test
-    public void whenNegativeInput() {
-        Output out = new StubOutput();
-        Input in = new StubInput(
-                new String[]{"-3a", "-4"}
-        );
-        ValidateInput input = new ValidateInput(out, in);
-        int selected = input.askInt("Enter menu:");
-        assertThat(selected, is(-4));
+        System.setOut(out);
     }
 }

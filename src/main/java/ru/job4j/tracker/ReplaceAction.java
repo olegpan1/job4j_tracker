@@ -9,19 +9,17 @@ public class ReplaceAction implements UserAction {
 
     @Override
     public String name() {
-        return "Edit item";
+        return "=== Edit item ====";
     }
 
     @Override
-    public boolean execute(Input input, Tracker tracker) {
-        out.println("=== Edit item ====");
-        int id = input.askInt("Enter id: ");
+    public boolean execute(Input input, Store tracker) {
+        int id = Integer.parseInt(input.askStr("Enter id: "));
         String name = input.askStr("Enter name: ");
-        Item item = new Item(name);
-        if (tracker.replace(id, item)) {
-            out.println("Заявка " + id + " заменена");
+        if (tracker.replace(id, new Item(name))) {
+            out.println("Item is successfully replaced!");
         } else {
-            out.println("Заявка " + id + " не существует, её невозможно заменить");
+            out.println("Wrong id!");
         }
         return true;
     }
