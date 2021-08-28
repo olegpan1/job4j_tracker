@@ -19,8 +19,8 @@ public class AttachmentSort {
                 return left.getSize() - right.getSize();
             }
         };
-        attachments.sort(comparator);
-        System.out.println(attachments);
+//        attachments.sort(comparator);
+//        System.out.println(attachments);
 
         Comparator<Attachment> comparatorByName =  new Comparator<Attachment>() {
             @Override

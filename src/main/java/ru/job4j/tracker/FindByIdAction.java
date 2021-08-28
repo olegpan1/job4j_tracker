@@ -20,7 +20,7 @@ public class FindByIdAction implements UserAction {
         if (item != null) {
             out.println(item);
         } else {
-            out.println("Wrong id! Not found");
+            out.println("Wrong id! Not found!");
         }
         return true;
     }
