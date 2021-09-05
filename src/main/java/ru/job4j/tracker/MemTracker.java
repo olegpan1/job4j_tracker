@@ -1,11 +1,7 @@
 package ru.job4j.tracker;
 
-import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 public class MemTracker implements Store {
 
@@ -13,23 +9,8 @@ public class MemTracker implements Store {
 
     private int id = 0;
 
-    private Connection cn;
-
     @Override
     public void init() {
-        try (InputStream in = MemTracker.class.getClassLoader()
-                .getResourceAsStream("app.properties")) {
-            Properties config = new Properties();
-            config.load(in);
-            Class.forName(config.getProperty("driver-class-name"));
-            cn = DriverManager.getConnection(
-                    config.getProperty("url"),
-                    config.getProperty("username"),
-                    config.getProperty("password")
-            );
-        } catch (Exception e) {
-            throw new IllegalStateException(e);
-        }
     }
 
     public Item add(Item item) {
@@ -88,9 +69,6 @@ public class MemTracker implements Store {
     }
 
     @Override
-    public void close() throws Exception {
-        if (cn != null) {
-            cn.close();
-        }
+    public void close() {
     }
 }
