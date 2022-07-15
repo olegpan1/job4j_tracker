@@ -158,7 +158,6 @@ public class SqlTracker implements Store {
         );
         Output output = new ConsoleOutput();
         try (Store tracker = new SqlTracker()) {
-//            tracker.init();
             List<UserAction> actions = List.of(
                     new CreateAction(output),
                     new ReplaceAction(output),
