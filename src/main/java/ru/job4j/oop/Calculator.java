@@ -2,14 +2,14 @@ package ru.job4j.oop;
 
 public class Calculator {
 
-    private static int x = 5;
+    private static int x;
 
     public static int sum(int a) {
-        return x + a;
+        return a + x;
     }
 
     public int multiply(int a) {
-        return x * a;
+        return a * x;
     }
 
     public static int minus(int a) {
@@ -26,6 +26,8 @@ public class Calculator {
 
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
+        x = 5;
+
         int result = sum(10);
         System.out.println("sum " + result);
 
