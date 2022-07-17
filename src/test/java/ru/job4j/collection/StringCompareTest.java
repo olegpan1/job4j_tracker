@@ -1,9 +1,9 @@
 package ru.job4j.collection;
 
+import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.assertThat;
 
 public class StringCompareTest {
 
@@ -14,7 +14,7 @@ public class StringCompareTest {
                 "Ivanov",
                 "Ivanov"
         );
-        assertThat(rst, is(0));
+        MatcherAssert.assertThat(rst, is(0));
     }
 
     @Test
@@ -24,7 +24,7 @@ public class StringCompareTest {
                 "Ivanov",
                 "Ivanova"
         );
-        assertThat(rst, lessThan(0));
+        MatcherAssert.assertThat(rst, lessThan(0));
     }
 
     @Test
@@ -34,7 +34,7 @@ public class StringCompareTest {
                 "Petrov",
                 "Ivanova"
         );
-        assertThat(rst, greaterThan(0));
+        MatcherAssert.assertThat(rst, greaterThan(0));
     }
 
     @Test
@@ -44,7 +44,7 @@ public class StringCompareTest {
                 "Petrov",
                 "Patrov"
         );
-        assertThat(rst, greaterThan(0));
+        MatcherAssert.assertThat(rst, greaterThan(0));
     }
 
     @Test
@@ -54,6 +54,6 @@ public class StringCompareTest {
                 "Patrova",
                 "Petrov"
         );
-        assertThat(rst, lessThan(0));
+        MatcherAssert.assertThat(rst, lessThan(0));
     }
 }

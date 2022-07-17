@@ -1,5 +1,6 @@
 package ru.job4j.collection;
 
+import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;
@@ -10,13 +11,13 @@ public class UniqueTextTest {
     public void isEquals() {
         String origin = "My cat eats a mouse and milk";
         String text = "My cat eats milk and a";
-        assertThat(UniqueText.isEquals(origin, text), is(true));
+        MatcherAssert.assertThat(UniqueText.isEquals(origin, text), is(true));
     }
 
     @Test
     public void isNotEquals() {
         String origin = "My cat eats a mouse";
         String text = "A mouse is eaten by a cat";
-        assertThat(UniqueText.isEquals(origin, text), is(false));
+        MatcherAssert.assertThat(UniqueText.isEquals(origin, text), is(false));
     }
 }

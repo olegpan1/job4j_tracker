@@ -1,5 +1,6 @@
 package ru.job4j.tracker;
 
+import org.hamcrest.MatcherAssert;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -55,7 +56,7 @@ public class SqlTrackerTest {
         SqlTracker tracker = new SqlTracker(connection);
         Item item = new Item("item");
         tracker.add(item);
-        assertThat(tracker.findById(item.getId()), is(item));
+        MatcherAssert.assertThat(tracker.findById(item.getId()), is(item));
     }
 
     @Test
@@ -65,7 +66,7 @@ public class SqlTrackerTest {
         Item itemNew = new Item("itemNew");
         boolean replaced = tracker.replace(itemOld.getId(), itemNew);
         assertTrue(replaced);
-        assertThat(tracker.findById(itemOld.getId()).getName(), is("itemNew"));
+        MatcherAssert.assertThat(tracker.findById(itemOld.getId()).getName(), is("itemNew"));
     }
 
     @Test

@@ -1,15 +1,15 @@
 package ru.job4j.collection;
 
+import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
 
 public class ArticleTest {
 
     @Test
     public void whenLineGnrTrue() {
-        assertThat(
+        MatcherAssert.assertThat(
                 Article.generateBy(
                         "Мама мыла раму и окно",
                         "мыла окно"
@@ -20,7 +20,7 @@ public class ArticleTest {
 
     @Test
     public void whenLineGnrFalse() {
-        assertThat(
+        MatcherAssert.assertThat(
                 Article.generateBy(
                         "Мама мыла раму и окно",
                         "мыла пол"
@@ -31,7 +31,7 @@ public class ArticleTest {
 
     @Test
     public void whenLongTextTrue() {
-        assertThat(
+        MatcherAssert.assertThat(
                 Article.generateBy(
                         "Мой дядя самых честных правил, "
                                 + "Когда не в шутку занемог, "
@@ -55,7 +55,7 @@ public class ArticleTest {
 
     @Test
     public void whenLongTextFalse() {
-        assertThat(
+        MatcherAssert.assertThat(
                 Article.generateBy(
                         "Мой дядя самых честных правил, "
                                 + "Когда не в шутку занемог, "

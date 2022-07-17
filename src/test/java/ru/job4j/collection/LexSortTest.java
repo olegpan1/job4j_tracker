@@ -1,5 +1,6 @@
 package ru.job4j.collection;
 
+import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -21,7 +22,7 @@ public class LexSortTest {
                 "10. Task."
         };
         Arrays.sort(input, new LexSort());
-        assertThat(input, is(out));
+        MatcherAssert.assertThat(input, is(out));
     }
 
     @Test
@@ -45,6 +46,6 @@ public class LexSortTest {
                 "10. Task."
         };
         Arrays.sort(input, new LexSortFullCompare());
-        assertThat(input, is(out));
+        MatcherAssert.assertThat(input, is(out));
     }
 }

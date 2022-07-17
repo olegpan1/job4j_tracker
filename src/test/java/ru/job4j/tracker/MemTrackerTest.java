@@ -1,12 +1,12 @@
 package ru.job4j.tracker;
 
+import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 
 import java.util.List;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
-import static org.junit.Assert.assertThat;
 
 public class MemTrackerTest {
 
@@ -16,7 +16,7 @@ public class MemTrackerTest {
         Item item = new Item("test1");
         memTracker.add(item);
         Item result = memTracker.findById(item.getId());
-        assertThat(result.getName(), is(item.getName()));
+        MatcherAssert.assertThat(result.getName(), is(item.getName()));
     }
 
     @Test
@@ -28,7 +28,7 @@ public class MemTrackerTest {
         memTracker.add(item2);
         List<Item> expected = List.of(item1, item2);
         List<Item> result = memTracker.findAll();
-        assertThat(result, is(expected));
+        MatcherAssert.assertThat(result, is(expected));
     }
 
     @Test
@@ -42,7 +42,7 @@ public class MemTrackerTest {
         memTracker.add(item3);
         List<Item> expected = List.of(item1, item3);
         List<Item> result = memTracker.findByName("first");
-        assertThat(result, is(expected));
+        MatcherAssert.assertThat(result, is(expected));
     }
 
     @Test
@@ -55,7 +55,7 @@ public class MemTrackerTest {
         memTracker.add(item2);
         memTracker.add(item3);
         Item result = memTracker.findById(item2.getId());
-        assertThat(result, is(item2));
+        MatcherAssert.assertThat(result, is(item2));
     }
 
     @Test
@@ -68,7 +68,7 @@ public class MemTrackerTest {
         memTracker.add(item2);
         memTracker.add(item3);
         Item result = memTracker.findById(-1);
-        assertThat(result, is(nullValue()));
+        MatcherAssert.assertThat(result, is(nullValue()));
     }
 
     @Test
@@ -77,7 +77,7 @@ public class MemTrackerTest {
         Item item1 = new Item("first");
         memTracker.add(item1);
         memTracker.replace(item1.getId(), new Item("second"));
-        assertThat(memTracker.findById(item1.getId()).getName(), is("second"));
+        MatcherAssert.assertThat(memTracker.findById(item1.getId()).getName(), is("second"));
     }
 
     @Test
@@ -86,6 +86,6 @@ public class MemTrackerTest {
         Item item1 = new Item("first");
         memTracker.add(item1);
         memTracker.delete(item1.getId());
-        assertThat(memTracker.findById(item1.getId()), is(nullValue()));
+        MatcherAssert.assertThat(memTracker.findById(item1.getId()), is(nullValue()));
     }
 }

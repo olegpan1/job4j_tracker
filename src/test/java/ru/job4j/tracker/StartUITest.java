@@ -9,7 +9,7 @@ package ru.job4j.tracker;
  *
  * import static org.hamcrest.Matchers.is;
  * import static org.hamcrest.Matchers.nullValue;
- * import static org.junit.Assert.assertThat;
+ * 
  *
  * public class StartUITest {
  *
@@ -25,7 +25,7 @@ package ru.job4j.tracker;
  *                 new ExitAction()
  *         ));
  *         new StartUI().init(in, tracker, actions);
- *         assertThat(tracker.findAll().get(0).getName(), is("Item name"));
+ *         MatcherAssert.assertThat(tracker.findAll().get(0).getName(), is("Item name"));
  *     }
  *
  *     @Test
@@ -42,7 +42,7 @@ package ru.job4j.tracker;
  *                 new ExitAction()
  *         ));
  *         new StartUI().init(in, tracker, actions);
- *         assertThat(tracker.findById(item.getId()).getName(), is(replacedName));
+ *         MatcherAssert.assertThat(tracker.findById(item.getId()).getName(), is(replacedName));
  *     }
  *
  *     @Test
@@ -58,7 +58,7 @@ package ru.job4j.tracker;
  *                 new ExitAction()
  *         ));
  *         new StartUI().init(in, tracker, actions);
- *         assertThat(tracker.findById(item.getId()), is(nullValue()));
+ *         MatcherAssert.assertThat(tracker.findById(item.getId()), is(nullValue()));
  *     }
  *
  *     @Test
@@ -71,7 +71,7 @@ package ru.job4j.tracker;
  *         List<UserAction> actions = new ArrayList<>();
  *         actions.add(new ExitAction());
  *         new StartUI().init(in, tracker, actions);
- *         assertThat(out.toString(), is(
+ *         MatcherAssert.assertThat(out.toString(), is(
  *                 "Menu." + System.lineSeparator()
  *                         + "0. Exit" + System.lineSeparator()
  *         ));
@@ -90,7 +90,7 @@ package ru.job4j.tracker;
  *                 new ExitAction()
  *         ));
  *         new StartUI().init(in, tracker, actions);
- *         assertThat(out.toString(), is(
+ *         MatcherAssert.assertThat(out.toString(), is(
  *                 "Menu." + System.lineSeparator()
  *                         + "0. Find item by id" + System.lineSeparator()
  *                         + "1. Exit" + System.lineSeparator()
@@ -116,7 +116,7 @@ package ru.job4j.tracker;
  *                 new ExitAction()
  *         ));
  *         new StartUI().init(in, tracker, actions);
- *         assertThat(out.toString(), is(
+ *         MatcherAssert.assertThat(out.toString(), is(
  *                 "Menu." + System.lineSeparator()
  *                         + "0. Find item by id" + System.lineSeparator()
  *                         + "1. Exit" + System.lineSeparator()
@@ -141,7 +141,7 @@ package ru.job4j.tracker;
  *                 new ExitAction()
  *         ));
  *         new StartUI().init(in, tracker, actions);
- *         assertThat(out.toString(), is(
+ *         MatcherAssert.assertThat(out.toString(), is(
  *                 "Menu." + System.lineSeparator()
  *                         + "0. Find items by name" + System.lineSeparator()
  *                         + "1. Exit" + System.lineSeparator()
@@ -168,7 +168,7 @@ package ru.job4j.tracker;
  *                 new ExitAction()
  *         ));
  *         new StartUI().init(in, tracker, actions);
- *         assertThat(out.toString(), is(
+ *         MatcherAssert.assertThat(out.toString(), is(
  *                 "Menu." + System.lineSeparator()
  *                         + "0. Find items by name" + System.lineSeparator()
  *                         + "1. Exit" + System.lineSeparator()
@@ -192,7 +192,7 @@ package ru.job4j.tracker;
  *                 new ExitAction()
  *         ));
  *         new StartUI().init(in, tracker, actions);
- *         assertThat(out.toString(), is(
+ *         MatcherAssert.assertThat(out.toString(), is(
  *                 "Menu." + System.lineSeparator()
  *                         + "0. Show all items" + System.lineSeparator()
  *                         + "1. Exit" + System.lineSeparator()
@@ -217,7 +217,7 @@ package ru.job4j.tracker;
  *                 new ExitAction()
  *         ));
  *         new StartUI().init(in, tracker, actions);
- *         assertThat(out.toString(), is(
+ *         MatcherAssert.assertThat(out.toString(), is(
  *                 "Menu." + System.lineSeparator()
  *                         + "0. Show all items" + System.lineSeparator()
  *                         + "1. Exit" + System.lineSeparator()
@@ -240,7 +240,7 @@ package ru.job4j.tracker;
  *         actions.add(new ExitAction());
  *         new StartUI().init(in, tracker, actions);
  *         String ln = System.lineSeparator();
- *         assertThat(out.toString(), is(
+ *         MatcherAssert.assertThat(out.toString(), is(
  *                 "Menu." + ln
  *                         + "0. Exit" + ln
  *                         + "Wrong input, you can select: 0 .. 0" + ln

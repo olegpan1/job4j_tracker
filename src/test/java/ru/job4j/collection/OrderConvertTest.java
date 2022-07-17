@@ -1,5 +1,6 @@
 package ru.job4j.collection;
 
+import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -7,7 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
 
 public class OrderConvertTest {
     @Test
@@ -15,7 +15,7 @@ public class OrderConvertTest {
         List<Order> orders = new ArrayList<>();
         orders.add(new Order("3sfe", "Dress"));
         HashMap<String, Order> map = OrderConvert.process(orders);
-        assertThat(map.get("3sfe"), is(new Order("3sfe", "Dress")));
+        MatcherAssert.assertThat(map.get("3sfe"), is(new Order("3sfe", "Dress")));
     }
 
     @Test
@@ -26,6 +26,6 @@ public class OrderConvertTest {
         orders.add(new Order("3", "Dress"));
         orders.add(new Order("2", "Hat"));
         HashMap<String, Order> map = OrderConvert.process(orders);
-        assertThat(map.get("2"), is(new Order("2", "Hat")));
+        MatcherAssert.assertThat(map.get("2"), is(new Order("2", "Hat")));
     }
 }

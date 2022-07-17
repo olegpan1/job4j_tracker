@@ -1,8 +1,9 @@
 package ru.job4j.pojo;
 
-import static org.junit.Assert.assertThat;
+
 import static org.hamcrest.Matchers.is;
 
+import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 
 public class ShopTest {
@@ -13,7 +14,7 @@ public class ShopTest {
         products[1] = new Product("Bread", 4);
         products[2] = new Product("Egg", 19);
         int rsl = Shop.indexOfNull(products);
-        assertThat(rsl, is(3));
+        MatcherAssert.assertThat(rsl, is(3));
     }
 
     @Test
@@ -21,7 +22,7 @@ public class ShopTest {
         Product[] products = new Product[5];
         products[1] = new Product("Milk", 10);
         int rsl = Shop.indexOfNull(products);
-        assertThat(rsl, is(0));
+        MatcherAssert.assertThat(rsl, is(0));
     }
 
     @Test
@@ -29,6 +30,6 @@ public class ShopTest {
         Product[] products = new Product[1];
         products[0] = new Product("Milk", 10);
         int rsl = Shop.indexOfNull(products);
-        assertThat(rsl, is(-1));
+        MatcherAssert.assertThat(rsl, is(-1));
     }
 }

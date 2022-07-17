@@ -1,5 +1,6 @@
 package ru.job4j.collection;
 
+import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -8,7 +9,6 @@ import java.util.List;
 import java.util.Set;
 
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
 
 public class FullSearchTest {
     @Test
@@ -23,6 +23,6 @@ public class FullSearchTest {
                 new Task("1", "First desc")
         );
         Set<String> expected = new HashSet<>(List.of("1", "2"));
-        assertThat(FullSearch.extractNumber(tasks), is(expected));
+        MatcherAssert.assertThat(FullSearch.extractNumber(tasks), is(expected));
     }
 }

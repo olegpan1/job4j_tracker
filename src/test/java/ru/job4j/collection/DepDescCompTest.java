@@ -1,5 +1,6 @@
 package ru.job4j.collection;
 
+import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.lessThan;
@@ -14,7 +15,7 @@ public class DepDescCompTest {
                 "K2/SK1/SSK2",
                 "K2/SK1/SSK1"
         );
-        assertThat(rsl, greaterThan(0));
+        MatcherAssert.assertThat(rsl, greaterThan(0));
     }
 
     @Test
@@ -23,7 +24,7 @@ public class DepDescCompTest {
                 "K2",
                 "K2/SK1"
         );
-        assertThat(rsl, lessThan(0));
+        MatcherAssert.assertThat(rsl, lessThan(0));
     }
 
 }

@@ -1,4 +1,5 @@
 package ru.job4j.stream;
+import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ public class SchoolTest {
         List<Student> expected = new ArrayList<>();
         expected.add(new Student(70, "Surname7"));
         expected.add(new Student(90, "Surname9"));
-        assertThat(rsl, is(expected));
+        MatcherAssert.assertThat(rsl, is(expected));
     }
 
     @Test
@@ -42,7 +43,7 @@ public class SchoolTest {
         List<Student> expected = new ArrayList<>();
         expected.add(new Student(50, "Surname5"));
         expected.add(new Student(60, "Surname6"));
-        assertThat(rsl, is(expected));
+        MatcherAssert.assertThat(rsl, is(expected));
     }
 
     @Test
@@ -61,6 +62,6 @@ public class SchoolTest {
         expected.add(new Student(10, "Surname1"));
         expected.add(new Student(30, "Surname3"));
         expected.add(new Student(40, "Surname4"));
-        assertThat(rsl, is(expected));
+        MatcherAssert.assertThat(rsl, is(expected));
     }
 }

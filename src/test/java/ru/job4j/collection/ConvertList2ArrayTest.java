@@ -1,12 +1,12 @@
 package ru.job4j.collection;
 
+import org.hamcrest.MatcherAssert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
 
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
 
 @Ignore
 public class ConvertList2ArrayTest {
@@ -22,6 +22,6 @@ public class ConvertList2ArrayTest {
                 {4, 5, 6},
                 {7, 8, 0}
         };
-        assertThat(result, is(expect));
+        MatcherAssert.assertThat(result, is(expect));
     }
 }

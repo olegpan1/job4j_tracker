@@ -1,12 +1,12 @@
 package ru.job4j.collection;
 
+import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 
 import java.util.Comparator;
 
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.lessThan;
-import static org.junit.Assert.assertThat;
 
 public class JobTest {
 
@@ -17,7 +17,7 @@ public class JobTest {
                 new Job("Fix1", 2),
                 new Job("Fix2", 1)
         );
-        assertThat(rsl, lessThan(0));
+        MatcherAssert.assertThat(rsl, lessThan(0));
     }
 
     @Test
@@ -27,7 +27,7 @@ public class JobTest {
                 new Job("Fix1", 2),
                 new Job("Fix2", 1)
         );
-        assertThat(rsl, greaterThan(0));
+        MatcherAssert.assertThat(rsl, greaterThan(0));
     }
 
     @Test
@@ -37,7 +37,7 @@ public class JobTest {
                 new Job("Fix", 1),
                 new Job("Fix", 2)
         );
-        assertThat(rsl, lessThan(0));
+        MatcherAssert.assertThat(rsl, lessThan(0));
     }
 
     @Test
@@ -47,7 +47,7 @@ public class JobTest {
                 new Job("Fix", 1),
                 new Job("Fix", 2)
         );
-        assertThat(rsl, greaterThan(0));
+        MatcherAssert.assertThat(rsl, greaterThan(0));
     }
 
     @Test
@@ -58,7 +58,7 @@ public class JobTest {
                 new Job("Fix1", 1),
                 new Job("Fix1", 2)
         );
-        assertThat(rsl, lessThan(0));
+        MatcherAssert.assertThat(rsl, lessThan(0));
     }
 
     @Test
@@ -69,7 +69,7 @@ public class JobTest {
                 new Job("Fix1", 2),
                 new Job("Fix2", 2)
         );
-        assertThat(rsl, greaterThan(0));
+        MatcherAssert.assertThat(rsl, greaterThan(0));
     }
 
 }
