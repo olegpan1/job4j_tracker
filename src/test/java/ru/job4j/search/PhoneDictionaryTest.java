@@ -1,9 +1,9 @@
 package ru.job4j.search;
 
+import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
 
 public class PhoneDictionaryTest {
 
@@ -14,7 +14,7 @@ public class PhoneDictionaryTest {
                 new Person("Petr", "Arsentev", "534872", "Bryansk")
         );
         var persons = phones.find("534");
-        assertThat(persons.get(0).getSurname(), is("Arsentev"));
+        MatcherAssert.assertThat(persons.get(0).getSurname(), is("Arsentev"));
     }
 
     @Test
@@ -24,6 +24,6 @@ public class PhoneDictionaryTest {
                 new Person("Petr", "Arsentev", "534872", "Bryansk")
         );
         var persons = phones.find("533");
-        assertThat(persons.size(), is(0));
+        MatcherAssert.assertThat(persons.size(), is(0));
     }
 }
