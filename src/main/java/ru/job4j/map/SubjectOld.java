@@ -2,12 +2,12 @@ package ru.job4j.map;
 
 import java.util.Objects;
 
-public class Subject {
+public class SubjectOld {
     private String name;
 
     private int score;
 
-    public Subject(String name, int score) {
+    public SubjectOld(String name, int score) {
         this.name = name;
         this.score = score;
     }
@@ -28,7 +28,7 @@ public class Subject {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Subject subject = (Subject) o;
+        SubjectOld subject = (SubjectOld) o;
         return Objects.equals(name, subject.name);
     }
 

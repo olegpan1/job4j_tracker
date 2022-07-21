@@ -5,9 +5,9 @@ import java.util.Optional;
 import java.util.Set;
 
 public class College {
-    private final Map<Student, Set<Subject>> students;
+    private final Map<Student, Set<SubjectOld>> students;
 
-    public College(Map<Student, Set<Subject>> students) {
+    public College(Map<Student, Set<SubjectOld>> students) {
         this.students = students;
     }
 
@@ -22,12 +22,12 @@ public class College {
         return rsl;
     }
 
-    public Optional<Subject> findBySubjectName(String account, String name) {
-        Optional<Subject> rsl = Optional.empty();
+    public Optional<SubjectOld> findBySubjectName(String account, String name) {
+        Optional<SubjectOld> rsl = Optional.empty();
         Optional<Student> s = findByAccount(account);
         if (s.isPresent()) {
-            Set<Subject> subjects = students.get(s.get());
-            for (Subject subj : subjects) {
+            Set<SubjectOld> subjects = students.get(s.get());
+            for (SubjectOld subj : subjects) {
                 if (name.equals(subj.getName())) {
                     rsl = Optional.of(subj);
                     break;
