@@ -2,9 +2,11 @@ package ru.job4j.map;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.offset;
 
 class AnalyzeByMapTest {
     @Test
@@ -163,5 +165,35 @@ class AnalyzeByMapTest {
                 )
         );
         assertThat(best).isEqualTo(new Label("Math", 250D));
+    }
+
+    @Test
+    public void whenEmptyListAverageScore() {
+        Double best = AnalyzeByMap.averageScore(new ArrayList<>());
+        assertThat(best).isEqualTo(-1);
+    }
+
+    @Test
+    public void whenEmptyListPupilAverage() {
+        List<Label> average = AnalyzeByMap.averageScoreByPupil(new ArrayList<>());
+        assertThat(average).isEmpty();
+    }
+
+    @Test
+    public void whenEmptyListSubjectAverage() {
+        List<Label> average = AnalyzeByMap.averageScoreBySubject(new ArrayList<>());
+        assertThat(average).isEmpty();
+    }
+
+    @Test
+    public void whenEmptyListBestPupil() {
+        Label best = AnalyzeByMap.bestStudent(new ArrayList<>());
+        assertThat(best).isEqualTo(new Label("Empty list", -1));
+    }
+
+    @Test
+    public void whenEmptyListBestSubject() {
+        Label best = AnalyzeByMap.bestSubject(new ArrayList<>());
+        assertThat(best).isEqualTo(new Label("Empty list", -1));
     }
 }

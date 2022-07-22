@@ -4,6 +4,9 @@ import java.util.*;
 
 public class AnalyzeByMap {
     public static double averageScore(List<Pupil> pupils) {
+        if (pupils.size() == 0) {
+            return -1;
+        }
         double scoreSum = 0;
         int count = 0;
         for (Pupil pupil : pupils) {
@@ -17,6 +20,9 @@ public class AnalyzeByMap {
 
     public static List<Label> averageScoreByPupil(List<Pupil> pupils) {
         List<Label> labelPupil = new ArrayList<>();
+        if (pupils.size() == 0) {
+            return labelPupil;
+        }
         for (Pupil pupil : pupils) {
             double scoreSum = 0;
             int count = 0;
@@ -33,6 +39,9 @@ public class AnalyzeByMap {
 
     public static List<Label> averageScoreBySubject(List<Pupil> pupils) {
         List<Label> labelSubject = new ArrayList<>();
+        if (pupils.size() == 0) {
+            return labelSubject;
+        }
         Map<String, Integer> map = new LinkedHashMap<>();
         double count = 0;
         double avgScore;
@@ -50,6 +59,9 @@ public class AnalyzeByMap {
     }
 
     public static Label bestStudent(List<Pupil> pupils) {
+        if (pupils.size() == 0) {
+            return new Label("Empty list", -1);
+        }
         List<Label> labelPupil = new ArrayList<>();
         for (Pupil pupil : pupils) {
             double scoreSum = 0;
@@ -63,6 +75,9 @@ public class AnalyzeByMap {
     }
 
     public static Label bestSubject(List<Pupil> pupils) {
+        if (pupils.size() == 0) {
+            return new Label("Empty list", -1);
+        }
         List<Label> labelSubject = new ArrayList<>();
         Map<String, Integer> map = new LinkedHashMap<>();
         for (Pupil pupil : pupils) {
