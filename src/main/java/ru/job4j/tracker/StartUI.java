@@ -33,9 +33,11 @@ public class StartUI {
                 new FindAllAction(output),
                 new FindByIdAction(output),
                 new FindByNameAction(output),
+                new AddManyAction(output),
+                new DeleteAllAction(output),
                 new ExitAction()
         );
-        Store tracker = new SqlTracker();
+        Store tracker = new MemTracker();
         new StartUI().init(validate, tracker, actions);
     }
 }
