@@ -1,11 +1,6 @@
 package ru.job4j.tracker;
 
-public class ReplaceAction implements UserAction {
-    private final Output out;
-
-    public ReplaceAction(Output out) {
-        this.out = out;
-    }
+public record ReplaceAction(Output out) implements UserAction {
 
     @Override
     public String name() {

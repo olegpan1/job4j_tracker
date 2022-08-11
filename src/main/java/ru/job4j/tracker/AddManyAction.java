@@ -1,12 +1,6 @@
 package ru.job4j.tracker;
 
-public class AddManyAction implements UserAction {
-
-    private final Output out;
-
-    public AddManyAction(Output out) {
-        this.out = out;
-    }
+public record AddManyAction(Output out) implements UserAction {
 
     @Override
     public String name() {
@@ -19,7 +13,7 @@ public class AddManyAction implements UserAction {
         for (int i = 0; i < number; i++) {
             tracker.add(new Item(Integer.toString(i)));
         }
-        out.println("Successfully added: " + tracker.findAll().size() + " Items!");
+        out.println("Successfully added: " + number + " Items!");
         return true;
     }
 }

@@ -1,12 +1,8 @@
 package ru.job4j.tracker;
 
-public class FindByIdAction implements UserAction {
+import java.util.Objects;
 
-    private final Output out;
-
-    public FindByIdAction(Output out) {
-        this.out = out;
-    }
+public record FindByIdAction(Output out) implements UserAction {
 
     @Override
     public String name() {
@@ -17,11 +13,7 @@ public class FindByIdAction implements UserAction {
     public boolean execute(Input input, Store tracker) {
         int id = Integer.parseInt(input.askStr("Enter id: "));
         Item item = tracker.findById(id);
-        if (item != null) {
-            out.println(item);
-        } else {
-            out.println("Wrong id! Not found!");
-        }
+        out.println(Objects.requireNonNullElse(item, "Wrong id! Not found!"));
         return true;
     }
 }

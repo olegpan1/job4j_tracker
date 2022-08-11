@@ -2,12 +2,7 @@ package ru.job4j.tracker;
 
 import java.util.List;
 
-public class FindByNameAction implements UserAction {
-    private final Output out;
-
-    public FindByNameAction(Output out) {
-        this.out = out;
-    }
+public record FindByNameAction(Output out) implements UserAction {
 
     @Override
     public String name() {
