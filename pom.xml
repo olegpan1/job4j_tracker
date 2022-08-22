@@ -140,15 +140,6 @@
                 <configuration>
                     <propertyFile>db/liquibase.properties</propertyFile>
                 </configuration>
-                <executions>
-                    <execution>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>clearCheckSums</goal>
-                            <goal>update</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
