@@ -69,7 +69,7 @@ public class SqlTrackerTest {
     }
 
     @Test
-    public void delete() {
+    public void whenDelete() {
         SqlTracker tracker = new SqlTracker(connection);
         Item item1 = new Item("item1");
         Item item2 = new Item("item2");
@@ -83,7 +83,7 @@ public class SqlTrackerTest {
     }
 
     @Test
-    public void findAll() {
+    public void whenFindAll() {
         SqlTracker tracker = new SqlTracker(connection);
         Item item1 = new Item("item1");
         Item item2 = new Item("item2");
@@ -96,7 +96,7 @@ public class SqlTrackerTest {
     }
 
     @Test
-    public void findByName() {
+    public void whenFindByName() {
         SqlTracker tracker = new SqlTracker(connection);
         Item item1 = new Item("item1");
         Item item2 = new Item("item2");
@@ -114,7 +114,7 @@ public class SqlTrackerTest {
     }
 
     @Test
-    public void findById() {
+    public void whenFindById() {
         SqlTracker tracker = new SqlTracker(connection);
         Item item1 = new Item("item1");
         Item item2 = new Item("item2");
