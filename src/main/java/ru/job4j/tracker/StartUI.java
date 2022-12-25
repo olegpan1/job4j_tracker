@@ -4,7 +4,6 @@ import java.util.List;
 
 public class StartUI {
 
-
     public void init(Input input, Store tracker, List<UserAction> actions) {
         boolean run = true;
         while (run) {
@@ -14,7 +13,6 @@ public class StartUI {
             run = action.execute(input, tracker);
         }
     }
-
 
     private void showMenu(List<UserAction> actions) {
         System.out.println("Menu.");
